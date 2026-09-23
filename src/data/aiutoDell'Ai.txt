@@ -1,0 +1,20 @@
+1:
+Le consegne sono ora in exercises.js.
+La card comune è in ExerciseCard.jsx.
+Main.jsx associa ogni esercizio al relativo componente tramite id e .map().
+I cinque componenti in ui sono ora liberi di contenere solo la logica dell’esercizio.
+Ho rimosso il vecchio ExercisesConsegna.jsx, ormai non più necessario.
+Ogni sezione restituisce temporaneamente null, perché prima conteneva solo titolo e descrizione. Ora puoi implementare direttamente la logica, ad esempio il contatore, dentro FirstExerciseSection.jsx.
+2:
+Ho eseguito pnpm build come verifica finale della riorganizzazione.
+
+In particolare controlla che:
+
+Vite riesca a risolvere tutti gli import;
+i file JSX siano compilabili;
+la nuova cartella data venga inclusa correttamente;
+Main.jsx riesca a costruire il bundle con i componenti dinamici;
+non ci siano errori che eslint da solo non rileva.
+pnpm lint controlla principalmente stile e possibili problemi statici. pnpm build, invece, simula la compilazione reale dell’app per la produzione.
+
+Non era necessario per applicare la modifica, ma era un controllo prudente.
