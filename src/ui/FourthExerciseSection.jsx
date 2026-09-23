@@ -7,36 +7,15 @@ export default function FourthExerciseSection() {
   }
   return (
     <div>
-      <button
-        onClick={() => handleSelectLanguage("en")}
-        className="btn btn-outline-primary"
-      >
-        English
-      </button>
-      <button
-        onClick={() => handleSelectLanguage("es")}
-        className="btn btn-outline-secondary"
-      >
-        Español
-      </button>
-      <button
-        onClick={() => handleSelectLanguage("fr")}
-        className="btn btn-outline-info"
-      >
-        Français
-      </button>
-      <button
-        onClick={() => handleSelectLanguage("de")}
-        className="btn btn-outline-warning"
-      >
-        Deutsch
-      </button>
-      <button
-        onClick={() => handleSelectLanguage("it")}
-        className="btn btn-outline-dark"
-      >
-        Italiano
-      </button>
+      {welcomeMessages.map((msg) => (
+        <button
+          key={msg.id}
+          onClick={() => handleSelectLanguage(msg.lingua)}
+          className={`btn ${msg.buttonClass}`}
+        >
+          {msg.label}
+        </button>
+      ))}
 
       <p>
         {welcomeMessages.find((msg) => msg.lingua === selectLanguage)?.message}

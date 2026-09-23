@@ -18,3 +18,7 @@ non ci siano errori che eslint da solo non rileva.
 pnpm lint controlla principalmente stile e possibili problemi statici. pnpm build, invece, simula la compilazione reale dell’app per la produzione.
 
 Non era necessario per applicare la modifica, ma era un controllo prudente.
+3: Esercizio 4, mi aiuta a iterare sopra l'array di oggetti welcomeMessages che avevo già creato. 
+map crea un pulsante per ogni oggetto, key identifica il pulsante 
+e onClick aggiorna la lingua selezionata. 
+Il messaggio continua a essere trovato con find.
