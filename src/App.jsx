@@ -4,7 +4,7 @@ import Footer from "./layout/Footer";
 function App() {
   return (
     <>
-      <div className="card text-center">
+      <div className="card">
         <Header className="card-header" />
         <Main className="card-body" />
         <Footer className="card-footer" />
