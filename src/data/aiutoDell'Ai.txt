@@ -22,3 +22,93 @@ Non era necessario per applicare la modifica, ma era un controllo prudente.
 map crea un pulsante per ogni oggetto, key identifica il pulsante 
 e onClick aggiorna la lingua selezionata. 
 Il messaggio continua a essere trovato con find.
+
+
+4: esercizio 5, mi sono impappinata....
+Ti spiego il pezzo fondamentale: come si usa useState e perché la funzione di toggle cambia solo un elemento della lista, non tutti.
+
+const [activities, setActivities] = useState(activitiesList);
+Questa riga significa:
+
+activities = lo stato attuale della lista
+setActivities = la funzione per aggiornare lo stato
+useState(activitiesList) = inizializza lo stato con i dati iniziali
+In pratica:
+
+const [activities, setActivities] = useState(activitiesList);
+
+equivale a dire:
+
+“Ho una variabile reattiva chiamata activities, inizialmente contiene activitiesList.”
+
+Se activitiesList è:
+[
+  { id: 1, title: "Activity 1", status: "" },
+  { id: 2, title: "Activity 2", status: "" }
+]
+
+allora activities sarà proprio quella lista.
+
+Quando lo stato cambia, React ricarica il componente e vede i nuovi dati.
+
+Perché usare setActivities invece di cambiare direttamente la lista
+Non si fa così:
+activities[0].status = true;
+
+perché React non lo rileva come cambiamento. Serve sempre setActivities(...).
+
+Quindi la modifica avviene creando una nuova lista aggiornata.
+
+La funzione toggle
+Questa è la parte centrale:
+function toggleCompleted(id) {
+  setActivities((prevActivities) =>
+    prevActivities.map((act) =>
+      act.id === id ? { ...act, status: !act.status } : act
+    )
+  );
+}
+
+Analisi passo per passo:
+setActivities((prevActivities) => ...)
+prevActivities è lo stato precedente.
+
+Quindi:
+
+prevActivities.map(...)
+stiamo prendendo la lista vecchia e trasformandola elemento per elemento.
+
+act.id === id ? ... : ...
+Questo controlla se l’elemento corrente è quello cliccato.
+
+se act.id è uguale all’id ricevuto
+allora lo modifichiamo
+altrimenti lo lasciamo invariato
+{ ...act, status: !act.status }
+Questo crea una copia dell’oggetto attività e inverte lo stato:
+
+se status era false diventa true
+se status era true diventa false
+Quindi:
+
+status: !act.status = toggle
+...act = mantiene tutte le altre proprietà come title, description, id
+Esempio concreto
+Se hai:
+[
+  { id: 1, status: false, title: "Activity 1" },
+  { id: 2, status: false, title: "Activity 2" }
+]
+
+e clicchi l’elemento con id = 2, allora la funzione farà:
+[
+  { id: 1, status: false, title: "Activity 1" },
+  { id: 2, status: true, title: "Activity 2" }
+]
+
+solo il secondo elemento cambia.
+
+In breve
+useState tiene traccia dello stato reattivo
+setState aggiorna lo stato in modo corretto per React
+il toggle cambia solo l’elemento giusto della lista grazie a map() e al confronto con id
