@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import FirstExerciseSection from "../ui/FirstExerciseSection";
 import SecondExerciseSection from "../ui/SecondExerciseSection";
 import ThirdExerciseSection from "../ui/ThirdExerciseSection";
@@ -36,6 +38,14 @@ const exerciseComponents = {
 };
 
 export default function Main() {
+  const [expandedExerciseId, setExpandedExerciseId] = useState(null);
+
+  function handleToggleExercise(exerciseId) {
+    setExpandedExerciseId((currentExerciseId) =>
+      currentExerciseId === exerciseId ? null : exerciseId,
+    );
+  }
+
   return (
     // 1. return di Main - restituisce jsx complessivo
     <div className="card-text">
@@ -44,7 +54,12 @@ export default function Main() {
 
         return (
           // 2. return della callback map - restituisce un singolo ExerciseCard per ogni elemento array exercises
-          <ExerciseCard key={exercise.id} {...exercise}>
+          <ExerciseCard
+            key={exercise.id}
+            {...exercise}
+            isExpanded={expandedExerciseId === exercise.id}
+            onToggle={() => handleToggleExercise(exercise.id)}
+          >
             <Exercise />
           </ExerciseCard>
         );
