@@ -7,7 +7,11 @@ export default function UndicesimoExerciseSection() {
 
   return (
     <div>
-      <p className={grassetto === true ? "fw-bold" : ""}>Testo da modificare</p>
+      <p
+        className={`${grassetto === true ? "fw-bold" : ""} ${corsivo === true ? "fst-italic" : ""} ${evidenziato === true ? "bg-warning text-dark px-1" : ""} ${sottolineato === true ? "text-decoration-underline" : ""}`}
+      >
+        Testo da modificare
+      </p>
       <input
         onChange={() => setGrassetto(!grassetto)}
         value={grassetto}
