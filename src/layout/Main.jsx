@@ -3,6 +3,17 @@ import SecondExerciseSection from "../ui/SecondExerciseSection";
 import ThirdExerciseSection from "../ui/ThirdExerciseSection";
 import FourthExerciseSection from "../ui/FourthExerciseSection";
 import FifthExerciseSection from "../ui/FifthExerciseSection";
+import SestoExerciseSection from "../ui/SestoExerciseSection";
+import SettimoExerciseSection from "../ui/SettimoExerciseSection";
+import OttavoExerciseSection from "../ui/OttavoExerciseSection";
+import NonoExerciseSection from "../ui/NonoExerciseSection";
+import DecimoExerciseSection from "../ui/DecimoExerciseSection";
+import UndicesimoExerciseSection from "../ui/UndicesimoExerciseSection";
+import DodicesimoExerciseSection from "../ui/DodicesimoExerciseSection";
+import TredicesimoExerciseSection from "../ui/TredicesimoExerciseSection";
+import QuattordicesimoExerciseSection from "../ui/QuattordicesimoExerciseSection";
+import QuindicesimoExerciseSection from "../ui/QuindicesimoExerciseSection";
+
 import ExerciseCard from "../components/ExerciseCard";
 import exercises from "../data/exercises";
 
@@ -12,6 +23,16 @@ const exerciseComponents = {
   "allineamento-paragrafo": ThirdExerciseSection,
   "messaggio-multilingue": FourthExerciseSection,
   "lista-attivita": FifthExerciseSection,
+  "contatore-caratteri": SestoExerciseSection,
+  "filtro-nomi": SettimoExerciseSection,
+  "aggiorna-titolo": OttavoExerciseSection,
+  "unisci-nome-cognome": NonoExerciseSection,
+  "abilita-pulsante": DecimoExerciseSection,
+  "applica-stile": UndicesimoExerciseSection,
+  "ridimensiona-testo": DodicesimoExerciseSection,
+  "convertitore-valuta": TredicesimoExerciseSection,
+  "caratteri-rimanenti": QuattordicesimoExerciseSection,
+  "avvisi-testo": QuindicesimoExerciseSection,
 };
 
 export default function Main() {
